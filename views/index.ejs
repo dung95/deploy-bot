@@ -4,9 +4,26 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta http-equiv="refresh" content="3" >
   </head>
   <body>
     <div class="container">
+        <div class="field is-horizontal">
+            <div class="field-body">
+              <div class="field">
+                  <label class="label is-small" for="project_name">Tên project</label>
+                  <input class="input is-success" id="project_name" type="text">
+              </div>
+              <div class="field">
+                  <label class="label is-small" for="namespace_name">Tên namespace</label>
+                  <input class="input is-success" id="namespace_name" type="text">
+              </div>
+              <div class="field">
+                  <label class="label is-small" for="service_name">Tên service</label>
+                  <input class="input is-success" id="service_name" type="text">
+              </div>
+            </div>
+          </div>
       <div class="has-text-centered" >
         <table class="table is-bordered is-fullwidth">
           <thead>
@@ -22,7 +39,7 @@
               <% for(let i = 0; i < jobs.length; i++) { %>
                 <tr>
                     <td><%= i %></td>
-                    <td><%= jobs[i].name %></td>
+                    <td class="job_name"><%= jobs[i].name %></td>
                     <td><a href="<%= jobs[i].url %>" target="_blank"><%= jobs[i].url %></a></td>
                     <td><%- jobs[i].status %></td>
                     <td><a class="button is-link is-fullwidth">Build Job</a></td>

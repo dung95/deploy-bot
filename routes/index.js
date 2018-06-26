@@ -5,7 +5,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var options = { method: 'GET',
-  url: 'http://35.240.162.75:8080/api/json',
+  url: 'http://35.240.240.149:8080/api/json',
   qs: { tree: 'jobs[url,name,color]' },
   headers: 
    { 'Postman-Token': '9590189d-40b9-43ac-aa2c-836fffc01dd9',
@@ -16,6 +16,7 @@ request(options, function (error, response, body) {
   if (error) throw new Error(error);
   body = JSON.parse(body);
   let jobs = [];
+  console.log(body)
   for (let i = 0; i < body.jobs.length; i++) {
     const job = body.jobs[i];
     if(job.color === 'notbuilt') {
@@ -24,7 +25,10 @@ request(options, function (error, response, body) {
       job.status = `<span class="tag is-danger">Build không thành công</span>`;;
     } else if(job.color === 'blue') {
       job.status = `<span class="tag is-success">Build thành công</span>`;
+    } else if(job.color === 'blue_anime') {
+      job.status = `<span class="tag is-success">Đang Build</span>`;
     }
+    
     jobs.push(job);
   }
   res.render('index', {
