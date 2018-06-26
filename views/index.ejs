@@ -24,7 +24,7 @@
                     <td><%= i %></td>
                     <td><%= jobs[i].name %></td>
                     <td><a href="<%= jobs[i].url %>"><%= jobs[i].url %></a></td>
-                    <td><%= jobs[i].status %></td>
+                    <td><%- jobs[i].status %></td>
                     <td><a class="button is-link is-fullwidth">Build Job</a></td>
                   </tr>
               <% } %>

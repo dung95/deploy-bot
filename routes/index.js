@@ -19,15 +19,14 @@ request(options, function (error, response, body) {
   for (let i = 0; i < body.jobs.length; i++) {
     const job = body.jobs[i];
     if(job.color === 'notbuilt') {
-      job.status = 'Không build';
+      job.status = `<span class="tag is-warning">Không build</span>`;
     } else if(job.color === 'red') {
-      job.status = 'Build không thành công';
+      job.status = `<span class="tag is-danger">Build không thành công</span>`;;
     } else if(job.color === 'blue') {
-      job.status = 'Build thành công';
+      job.status = `<span class="tag is-success">Build thành công</span>`;
     }
     jobs.push(job);
   }
-  console.log(jobs);
   res.render('index', {
     title : 'Jenkins Webhook',
     jobs : jobs

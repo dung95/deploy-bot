@@ -4,6 +4,7 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('webhook HIHI');
+  console.log(req.body);
 });
 
 module.exports = router;
