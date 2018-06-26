@@ -2,10 +2,37 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="container">
+      <div class="has-text-centered" >
+        <table class="table is-bordered is-fullwidth">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Tên Job</th>
+              <th>Link Job</th>
+              <th>Trạng thái job</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% for(let i = 0; i < jobs.length; i++) { %>
+                <tr>
+                    <td><%= i %></td>
+                    <td><%= jobs[i].name %></td>
+                    <td><a href="<%= jobs[i].url %>"><%= jobs[i].url %></a></td>
+                    <td><%= jobs[i].status %></td>
+                    <td><a class="button is-link is-fullwidth">Build Job</a></td>
+                  </tr>
+              <% } %>
+            
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
   </body>
 </html>
