@@ -4,10 +4,10 @@ const slack = require('@slack/client');
 const RTMClient = slack.RTMClient;
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  let project_name = req.body.project
-  let namespace_name = req.body.namespace;
-  let service_name = req.body.service;
-  let done = req.body.done;
+  let project_name = req.query.project;
+  let namespace_name = req.query.namespace;
+  let service_name = req.query.service;
+  let done = req.query.done;
   // An access token (from your Slack app or custom integration - usually xoxb)
   const token = "xoxb-389035884822-388093118016-h0n7PLXOjJr6L1yFZwov7LAa";
 
