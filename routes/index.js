@@ -27,6 +27,8 @@ request(options, function (error, response, body) {
       job.status = `<span class="tag is-success">Build thành công</span>`;
     } else if(job.color === 'blue_anime') {
       job.status = `<span class="tag is-success">Đang Build</span>`;
+    } else if(job.color === 'red_anime') {
+      job.status = `<span class="tag is-success">Đang Build</span>`;
     }
     
     jobs.push(job);
